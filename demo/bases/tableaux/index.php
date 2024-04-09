@@ -42,3 +42,7 @@ $maria = array(
     'is_man' => false,
     'size' => 1.89
 );
+
+// Affichage code postal de maria
+
+echo $maria['age'];// au lieu d'un chiffre on met directement la clé concernée entre [] + guillemets
