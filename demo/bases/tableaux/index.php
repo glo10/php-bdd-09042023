@@ -45,4 +45,4 @@ $maria = array(
 
 // Affichage code postal de maria
 
-echo $maria['age'];// au lieu d'un chiffre on met directement la clé concernée entre [] + guillemets
+echo $maria['postal_code'];// au lieu d'un chiffre on met directement la clé concernée entre [] + guillemets
