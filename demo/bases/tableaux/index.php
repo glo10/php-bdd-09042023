@@ -28,3 +28,17 @@ $maria = array(
 // affichage de l'age
 
 echo $glodie[2];
+
+// tableaux associatifs (clés sont des string au lieu des int)
+// Pour les clés la convention de nommage est le snake_case ou camelCase
+// => opérateur d'affection
+$maria = array(
+    'firstname' => 'Maria',
+    'lastname' => 'Doe',
+    'age' => 42,
+    'postal_code' => 75004,
+    'city' => 'Paris',
+    'country' => 'France',
+    'is_man' => false,
+    'size' => 1.89
+);
