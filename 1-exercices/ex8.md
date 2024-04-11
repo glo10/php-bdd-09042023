@@ -6,10 +6,6 @@
 - [Fonction *password_hash()* pour hacher les mots de passe](https://www.php.net/manual/fr/function.password-hash)
 - [Fonction *password_verify()* pour vérifier que 2 mots de passe (un haché et l'autre non) sont identiques](https://www.php.net/manual/fr/function.password-verify.php)
 
-## Requêtes SQL pour insérer un utilisateur
-
-- `INSERT INTO user(lastname, firstname, email, pwd, age, city) VALUES (:lastname, :firstname, :email, :pwd, :age, :city)`
-
 ---
 
 ## Enoncé

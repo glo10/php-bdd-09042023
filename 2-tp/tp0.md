@@ -58,11 +58,11 @@ Affichez en fonction d'une heure, le moment de la journée s'il s'agit :
 
 Écrivez un programme qui affiche 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90.
 
-### 3 Paris
+### 3 départements Paris
 
 Écrivez un programme qui affiche tous les codes postaux du département 75.
 
-### 4 code postaux
+### 4 codes postaux
 
 Écrivez un programme qui affiche tous les codes postaux possibles du département 69 en utilisant la boucle while.
 
@@ -76,9 +76,9 @@ Ecrivez une fonction pour évaluer si une année est [bissextile](https://fr.wik
 
 ### 2 contenu d'une phrase
 
-1. Ecrivez uen fonction qui affiche le nombre de voyelles à partir d'une phase
-2. Ecrivez uen fonction qui affiche le nombre de consonnes à partir d'une phase
-3. Ecrivez uen fonction qui affiche le nombre des caractères spéciaux à partir d'une phase
+1. Ecrivez une fonction qui affiche le nombre de voyelles à partir d'une phase
+2. Ecrivez une fonction qui affiche le nombre de consonnes à partir d'une phase
+3. Ecrivez une fonction qui affiche le nombre des caractères spéciaux à partir d'une phase
 
 ### 3 palindrome
 
