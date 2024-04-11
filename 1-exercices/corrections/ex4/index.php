@@ -36,7 +36,7 @@ function minus(...$numbers) {
  * @param array ...$numbers all arguments
  * @return int|float
  */
-function multiply(...$numbers) {
+function multiplication(...$numbers) {
   $m = 1;
   foreach ($numbers as $nb) {
     $m *= $nb;
@@ -138,7 +138,7 @@ function findValueWithBreak(mixed $keySearch, array $data) : ?string {
 // Exécution
 var_dump(add(1, 2, 3, 4, 5, 6, 7));
 var_dump(minus(100, 20, 50));
-var_dump(multiply(1, 2, 3, 4, 5));
+var_dump(multiplication(1, 2, 3, 4, 5));
 var_dump(fibonacci());
 $user = [
   'firstname' => 'john',

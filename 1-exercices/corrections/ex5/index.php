@@ -8,7 +8,7 @@
  * @param integer $startTable min multiplicand
  * @return array multidimensional array with each operation
  */
-function multiply(int $max = 10, int $endTable = 12, int $startTable = 1) : array {
+function multiplications(int $max = 10, int $endTable = 12, int $startTable = 1) : array {
   $results = [];
   for($i = $startTable; $i <= $endTable; $i++) {
     for ($j = 1; $j <= $max; $j++) {
@@ -34,5 +34,5 @@ function fromTwoToOne(array $tables) : array {
   }
   return $results;
 }
-$tabs = multiply();
+$tabs = multiplications();
 var_dump($tabs, fromTwoToOne($tabs));
