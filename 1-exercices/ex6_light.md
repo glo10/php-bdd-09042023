@@ -1,4 +1,4 @@
-# Exercice 6 light
+# Exercice 6 light : formulaire
 
 ## Modalités
 
