@@ -11,7 +11,7 @@ qui sera responsable du traitement à faire, ici le fichier post.php
 l'attribut method permet de spécifier la méthode HTTP GET ou POST -->
     <form action="post.php" method="post">
         <input type="text" name="name" placeholder="Nom">
-        <input type="number" name="age" placeholder="Age">
+        <input type="number" name="age" placeholder="Age" min>
         <input type="submit" value="Envoyer">
     </form>
 </body>

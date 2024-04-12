@@ -13,7 +13,8 @@
 <body>
     <h1>Accueil</h1>
     <?php
-        // infos envoyées en post sont disponibles dans le tableau $_POST
+        // infos envoyées en post sont disponibles dans le tableau associatif $_POST
+        // la valeur de l'attribut name d'un input ou select ou textarea est la clé et la valeur saisie, séléctionnée ou cochée correspond à la valeur du champ
         echo '<p> Bonjour <span>'.$_POST['name'].'</span></p>';
         echo '<p>Vous avez '.$_POST['age'].' ans </p>';
         echo 'Hello '.$_POST['name'];
