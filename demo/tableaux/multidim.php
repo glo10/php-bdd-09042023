@@ -31,11 +31,11 @@ $persons = [
 
 // Afficher le prénom John
 $johnData = $persons[0]; // tableau avec toutes les infos de John
-echo 'Dans un tableau à une dim pour john'.$johnData['name'].'<br>';
+echo 'Dans un tableau à une dim pour John '.$johnData['name'].'<br>';
 // Afficher la ville de Céline
-echo 'Dans un tableau à une dim pour Céline'.$persons[1]['city'].'<br>';// Manchester
+echo 'Dans un tableau à une dim pour Céline '.$persons[1]['city'].'<br>';// Manchester
 echo 'Affichage tableau à 2 dim <br>';
-foreach($persons as $k => $person) { // ici person est un tableau
+foreach($persons as $keyInfoPerson => $person) { // ici $person est un tableau
     foreach($person as $key => $value) {
         if($key === 'isRich') {
             $isRich = $value === true ? ' riche' : 'pauvre';
