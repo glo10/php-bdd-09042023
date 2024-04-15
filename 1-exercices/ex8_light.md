@@ -2,8 +2,8 @@
 
 ## Enoncé
 
-1. Créez 5 fichiers PHP composé de :
-- Une page d'acceuil `index.php`
+1. Créez 5 fichiers PHP composés de :
+- Une page d'accueil `index.php`
 - Un fichier contenant le menu, `menu.php` (contenant les liens vers la page `index.php`, `news.php` et `contact.php`)
 - Un fichier contenant le footer, `footer.php`
 - Une page `news.php`
