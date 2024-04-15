@@ -16,13 +16,13 @@ var_dump($_POST, $_FILES);
  * @param string $defaultDir dossier de stockage des images
  * @return boolean
  */
-function downloadImg(array $data, string $uniquePrefix, int $maxSize = 2000000, $defaultDir = 'upload') : bool
+function downloadImg(array $data, string $uniquePrefix, int $maxSize = 2000000, $defaultDir = 'upload'): bool
 {
     $pic = $data['tmp_name'];
-    $filename = $uniquePrefix.$data['name'];// Concaténation du prefix avec le nom originel du fichier
+    $filename = $uniquePrefix . $data['name']; // Concaténation du prefix avec le nom originel du fichier
     // si $file['tmp_name'] existe alors $tmp vaudra sa valeur sinon $tmp vaut null
     $tmp = $pic ?? null; // idem que $tmp = isset($pic)?$pic:null
-    if($tmp === null) {// pas de fichier temporaire stocké dans un dossier temporaire du serveur
+    if ($tmp === null) { // pas de fichier temporaire stocké dans un dossier temporaire du serveur
         return false;
     }
 
@@ -34,26 +34,42 @@ function downloadImg(array $data, string $uniquePrefix, int $maxSize = 2000000, 
      * Fonction move_uploaded_file déplace un fichier d'un emplacement à un autre
      * Il faut bien créer le dossier upload au préalable et idéalement il faudrait vérifier dans le code que ce dossier existe
      */
-    
+
     // vérification de 4 conditions (bonne extension + bon type de contenu + bonne taille + déplacement effectué correctement)
-    return (preg_match('@jpeg|jpg|png@i', $extension) === 1) && 
-    in_array($data['type'], ['image/jpeg', 'image/jpg','image/png', 'image/gif']) &&
-    $data['size'] <= $maxSize &&
-    move_uploaded_file($data['tmp_name'], $defaultDir.'/'.$filename);
+    return (preg_match('@jpeg|jpg|png@i', $extension) === 1) &&
+        in_array($data['type'], ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']) &&
+        $data['size'] <= $maxSize &&
+        move_uploaded_file($data['tmp_name'], $defaultDir . '/' . $filename);
 }
 
-if(isset($_FILES['picture'])) {// appel de la fonction downloadImg uniquement la clé existe = uniquement lors de la soumission du formulaire
-    echo downloadImg($_FILES['picture'], uniqid('img_')) ?'Chargement du fichier ok':'Chargment du fichier ko';
+function downloadImgWithError(array $data, string $uniquePrefix, int $maxSize = 2000000, $defaultDir = 'upload'): string
+{
+    $pic = $data['tmp_name'];
+    $filename = $uniquePrefix . $data['name'];
+    $tmp = $pic ?? null;
+    if ($tmp === null) return 'Aucune image a été chargée';
+    $extension = pathinfo($data['name'], PATHINFO_EXTENSION);
+    if ((preg_match('@jpeg|jpg|png@i', $extension) !== 1) || !in_array($data['type'], ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'])
+    ) return 'Mauvaise extension, jpeg, jpg et png sont autorisées';
+    if ($data['size'] > $maxSize) return 'trop lourd';
+    if (move_uploaded_file($data['tmp_name'], $defaultDir . '/' . $filename)) return 'Chargement ok';
+    return 'Désolé, il y a eu un souci'; // on verra plus tard comment gérer les exceptions (erreur exceptionnelle)
+}
+
+if (isset($_FILES['picture'])) { // appel de la fonction downloadImg uniquement la clé existe = uniquement lors de la soumission du formulaire
+    echo downloadImg($_FILES['picture'], uniqid('img_')) ? 'Chargement du fichier ok' : 'Chargment du fichier ko';
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- Attention attribut enctype="multipart/form-data" obligatoire sinon impossible de récupérer les infos sur les fichiers côté Back -->
     <form action="" method="post" enctype="multipart/form-data">
@@ -61,4 +77,5 @@ if(isset($_FILES['picture'])) {// appel de la fonction downloadImg uniquement la
         <input type="submit" value="Valider">
     </form>
 </body>
+
 </html>
