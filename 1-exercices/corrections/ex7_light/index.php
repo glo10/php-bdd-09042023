@@ -21,7 +21,7 @@ function downloadImg(array $data, string $uniquePrefix, int $maxSize = 2000000, 
     $pic = $data['tmp_name'];
     $filename = $uniquePrefix . $data['name']; // Concaténation du prefix avec le nom originel du fichier
     // si $file['tmp_name'] existe alors $tmp vaudra sa valeur sinon $tmp vaut null
-    $tmp = $pic ?? null; // idem que $tmp = isset($pic)?$pic:null
+    $tmp = $pic ?? null; // idem que $tmp = isset($pic)?$pic:null, isset permet de vérifier si la variable est déclarée (existe)
     if ($tmp === null) { // pas de fichier temporaire stocké dans un dossier temporaire du serveur
         return false;
     }
@@ -36,7 +36,7 @@ function downloadImg(array $data, string $uniquePrefix, int $maxSize = 2000000, 
      */
 
     // vérification de 4 conditions (bonne extension + bon type de contenu + bonne taille + déplacement effectué correctement)
-    return (preg_match('@jpeg|jpg|png@i', $extension) === 1) &&
+    return (preg_match('@jpeg|jpg|png|gif@i', $extension) === 1) &&
         in_array($data['type'], ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']) &&
         $data['size'] <= $maxSize &&
         move_uploaded_file($data['tmp_name'], $defaultDir . '/' . $filename);
@@ -57,7 +57,7 @@ function downloadImgWithError(array $data, string $uniquePrefix, int $maxSize = 
 }
 
 if (isset($_FILES['picture'])) { // appel de la fonction downloadImg uniquement la clé existe = uniquement lors de la soumission du formulaire
-    echo downloadImg($_FILES['picture'], uniqid('img_')) ? 'Chargement du fichier ok' : 'Chargment du fichier ko';
+    echo downloadImg($_FILES['picture'], uniqid('img_')) ? 'Chargement du fichier ok' : 'Chargement du fichier ko';
 }
 
 ?>
