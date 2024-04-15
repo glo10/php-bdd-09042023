@@ -18,8 +18,23 @@ if (isset($_FILES['picture'])) { // appel de la fonction downloadImg uniquement 
 </head>
 
 <body>
-    <?php include 'html/form.php';?>
-    <?php require_once 'html/footer.php';?>
+    <?php 
+        /**
+         * Avec include
+         * Inclut le fichier si le chémin n'est pas bon,
+         * la suite du code sera exécuté
+         */
+        include 'html/form.php';
+    ?>
+    <?php
+        /**
+         * Avec require
+         * Inclut le fichier si le chémin n'est pas bon,
+         * la suite du code NE SERA PAS exécuté
+         * On aura une erreur fatale(le code sera arrêté brusquement au niveau de la ligne qui déclenche l'erreur, le reste du code qui vient après ne sera pas exécuté)
+         */
+        require_once 'html/footer.php';
+    ?>
 </body>
 
 </html>
